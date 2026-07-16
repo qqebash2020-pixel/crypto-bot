@@ -1,7 +1,18 @@
-runtime: python
+user:
+  name: alex
+  github: wastey2020
 
-build:
-  - pip install -r requirements.txt
+runtime:
+  image: python:3.11
 
-start:
-  - python main.py
+commands:
+  package: ""
+  build:
+    - pip install -r requirements.txt
+  start: python3 main.py
+
+repository:
+  branch: main
+  auto_deploy: true
+
+env: []
