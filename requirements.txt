@@ -1,2 +1,17 @@
-requests
-feedparser
+user:
+  name: alex
+  github: wastey2020
+
+runtime:
+  image: python:3.11
+
+commands:
+  package: ""
+  build: []
+  start: python3 main.py
+
+repository:
+  branch: main
+  auto_deploy: true
+
+env: []
