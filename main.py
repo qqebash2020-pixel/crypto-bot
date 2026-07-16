@@ -89,7 +89,7 @@ def fetch_fresh_articles():
 
     for source_name, url in RSS_SOURCES.items():
         feed = feedparser.parse(url)
-        for entry in feed.entries[:10]:  # дивимось тільки останні 10 записів з кожного джерела
+        for entry in feed.entries[:10]:  # дивимось тільки останні 15 записів з кожного джерела
             uid = entry.get("id", entry.get("link"))
             if uid in seen:
                 continue
