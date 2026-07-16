@@ -16,6 +16,7 @@ import re
 import json
 import feedparser
 import requests
+import time
 from datetime import datetime, timedelta, timezone
 
 # ==================== НАЛАШТУВАННЯ ====================
@@ -258,5 +259,18 @@ def main():
     print(f"Готово: опубліковано в канал пост на основі {len(articles)} новин.")
 
 
+CHECK_INTERVAL = 300  # 5 минут
+
 if __name__ == "__main__":
-    main()
+    print(f"Бот запущен. Проверка RSS каждые {CHECK_INTERVAL} секунд.")
+    while True:
+        try:
+            print("=" * 60)
+            print("Новая проверка RSS...")
+            main()
+        except Exception as e:
+            print(f"Ошибка: {e}")
+
+        print(f"Ожидание {CHECK_INTERVAL} секунд...")
+        time.sleep(CHECK_INTERVAL)
+
